@@ -145,7 +145,7 @@ def update_cfg_from_args(env_cfg, cfg_train, args):
 
 def get_args():
     custom_parameters = [
-        {"name": "--task", "type": str, "default": "tita",
+        {"name": "--task", "type": str, "default": "tita_constraint",
          "help": "Resume training or start testing from a checkpoint. Overrides config file if provided."},
         {"name": "--resume", "action": "store_true", "default": False, "help": "Resume training from a checkpoint"},
         {"name": "--experiment_name", "type": str,

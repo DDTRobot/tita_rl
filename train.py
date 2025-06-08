@@ -5,7 +5,8 @@ from configs.tita_constraint_config import TitaConstraintRoughCfg, TitaConstrain
 from configs.tita_flat_config import TitaFlatCfg, TitaFlatCfgPPO
 from configs.tita_rough_config import TitaRoughCfg, TitaRoughCfgPPO
 from envs.no_constrains_legged_robot import Tita
-
+from envs.single_stand import SingleStand
+from configs.tita_single_stand_config import TitaSingleStandCfg,TitaSingleStandCfgPPO
 from global_config import ROOT_DIR, ENVS_DIR
 import isaacgym
 from utils.helpers import get_args
@@ -34,6 +35,8 @@ if __name__ == '__main__':
     task_registry.register("tita_constraint",LeggedRobot,TitaConstraintRoughCfg(),TitaConstraintRoughCfgPPO())
     task_registry.register("tita_flat", Tita, TitaFlatCfg(), TitaFlatCfgPPO())
     task_registry.register("tita_rough", Tita, TitaRoughCfg(), TitaRoughCfgPPO())
-
+    task_registry.register("single_stand", SingleStand, TitaSingleStandCfg(), TitaSingleStandCfgPPO())
     args = get_args()
+    args.headless = True
+    args.task = "single_stand"
     train(args)
